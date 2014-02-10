@@ -4,9 +4,9 @@ Brewmasters::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'application#index'
+  root :to => 'application#index'
   
-  get '/about' => 'application#about'
+  get '/about' => 'application#about', :as => :about
   
   get '/index' => 'application#index'
   
