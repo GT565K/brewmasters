@@ -19,13 +19,11 @@
 </head>
 <body>
 	
-<p class="notice" style="display:none;"><%= notice %></p>
-<p class="alert" style="display:none;"><%= alert %></p>
-
+<%= render 'layouts/messages' %>
+	
 <%= yield %>
 
-<%= render 'layouts/modal_contact_form' %>
-
+<%= render 'layouts/user_widget' %>
 </body>
 
 
