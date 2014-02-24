@@ -2,7 +2,7 @@ class Api::V1::SessionsController < Api::V1::ApiController
 
   def create
     user = User.find_by_email(params[:user][:email])
-    if user.valid_password?(params[:user][:password])
+    if user && user.valid_password?(params[:user][:password])
       user.renew_token
       return render :json=> {:auth_token => user.auth_token }, :status => 200
     end
