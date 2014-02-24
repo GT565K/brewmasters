@@ -1,4 +1,6 @@
 Brewmasters::Application.routes.draw do
+  get "sessions/create"
+  get "sessions/destroy"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -10,8 +12,15 @@ Brewmasters::Application.routes.draw do
   
   get '/index' => 'application#index'
   
-  
-
+  namespace :api do
+    namespace :v1 do
+      devise_scope :user do
+        post 'register' => 'registrations#create', :as => 'register'
+        post 'login' => 'sessions#create', :as => 'login'
+        delete 'logout' => 'sessions#destroy', :as => 'logout'
+      end
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
