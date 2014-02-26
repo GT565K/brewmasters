@@ -11,7 +11,7 @@ class Api::V1::SessionsController < Api::V1::ApiController
   
   def destroy
     
-    user = User.find_by_auth_token(params[:user][:auth_token])
+    user = User.find_by_email_and_auth_token(params[:user][:email], params[:user][:auth_token])
     if user
       user.update_attribute(:auth_token, nil)
       return render :json=> {:message => "Successfully logged out" }, :status => 200
