@@ -17,7 +17,7 @@ Brewmasters::Application.routes.draw do
       devise_scope :user do
         post 'register' => 'registrations#create', :as => 'register'
         post 'login' => 'sessions#create', :as => 'login'
-        delete 'logout' => 'sessions#destroy', :as => 'logout'
+        post 'logout' => 'sessions#destroy', :as => 'logout'
       end
     end
   end
