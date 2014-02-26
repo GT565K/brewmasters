@@ -17,7 +17,7 @@ class Api::V1::SessionsController < Api::V1::ApiController
       return render :json=> {:message => "Successfully logged out" }, :status => 200
     end
     
-    render :json=> {:success=>false, :message=>"Invalid auth_token"}, :status=>401
+    render :json=> {:success=>false, :message=>"Invalid email or auth_token"}, :status=>401
   end
  
   protected 
