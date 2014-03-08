@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  recipe_id: 1
+  volume: 1.5
+  started_at: 2014-03-08 18:21:33
+
+two:
+  name: MyString
+  description: MyText
+  recipe_id: 1
+  volume: 1.5
+  started_at: 2014-03-08 18:21:33

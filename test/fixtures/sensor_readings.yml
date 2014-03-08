@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  batch_id: 1
+  mash_tun_temperature: 1.5
+  mash_tun_float: 1.5
+  boiling_kettle_temperature: 1.5
+  boiling_kettle_float: 1.5
+
+two:
+  batch_id: 1
+  mash_tun_temperature: 1.5
+  mash_tun_float: 1.5
+  boiling_kettle_temperature: 1.5
+  boiling_kettle_float: 1.5
