@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  version: 1
+  origin: MyString
+  alpha: 1.5
+  notes: MyText
+  type: 
+  form: MyString
+  beta: 1.5
+  HSI: 1.5
+
+two:
+  version: 1
+  origin: MyString
+  alpha: 1.5
+  notes: MyText
+  type: 
+  form: MyString
+  beta: 1.5
+  HSI: 1.5
