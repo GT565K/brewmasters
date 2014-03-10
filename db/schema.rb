@@ -11,7 +11,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210011618) do
+ActiveRecord::Schema.define(version: 20140309013905) do
+
+  create_table "batches", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "volume"
+    t.integer  "recipe_id"
+    t.datetime "started_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hops", force: true do |t|
+    t.string   "name"
+    t.integer  "version"
+    t.string   "origin"
+    t.float    "alpha"
+    t.text     "notes"
+    t.string   "type"
+    t.string   "form"
+    t.float    "beta"
+    t.float    "HSI"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ingredients", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "category"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipe_ingredients", force: true do |t|
+    t.integer  "recipe_id"
+    t.integer  "ingredient_id"
+    t.integer  "add_time"
+    t.float    "amount"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipes", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.float    "yield_size"
+    t.float    "boil_temperature"
+    t.float    "sparge_temperature"
+    t.float    "mash_temperature"
+    t.integer  "boil_duration"
+    t.integer  "sparge_duration"
+    t.integer  "mash_duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sensor_readings", force: true do |t|
+    t.integer  "batch_id"
+    t.float    "mash_tun_temperature"
+    t.float    "mash_tun_float"
+    t.float    "boiling_kettle_temperature"
+    t.float    "boiling_kettle_float"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -24,9 +92,9 @@ ActiveRecord::Schema.define(version: 20140210011618) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "auth_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "auth_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
