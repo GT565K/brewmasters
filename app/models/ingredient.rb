@@ -12,9 +12,12 @@
 #
 
 class Ingredient < ActiveRecord::Base
-  has_many :recipe_ingredients
-  has_many :recipes, through: :recipe_ingredients
   
-  VALID_CATEGORIES = %w[hop barley yeast other] # use for "select" tags in forms
-  validates :category, :inclusion => VALID_CATEGORIES
+  belongs_to :recipe
+  
+  VALID_TYPES = %w[hop barley yeast other] # use for "select" tags in forms
+  validates :type, :inclusion => VALID_TYPES
+  
+  VALID_UNITS = %w[oz lb tbsp tsp qts cups] # use for "select" tags in forms
+  validates :unit, :inclusion => VALID_UNITS
 end

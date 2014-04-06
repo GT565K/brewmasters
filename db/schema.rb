@@ -38,20 +38,13 @@ ActiveRecord::Schema.define(version: 20140309013905) do
   end
 
   create_table "ingredients", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "category"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "recipe_ingredients", force: true do |t|
     t.integer  "recipe_id"
-    t.integer  "ingredient_id"
-    t.integer  "add_time"
+    t.string   "name"
+    t.string   "type"
+    t.text     "description"
     t.float    "amount"
     t.string   "unit"
+    t.integer  "add_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
