@@ -3,10 +3,13 @@
 # Table name: ingredients
 #
 #  id          :integer          not null, primary key
+#  recipe_id   :integer
 #  name        :string(255)
+#  type        :string(255)
 #  description :text
-#  category    :string(255)
-#  user_id     :integer
+#  amount      :float
+#  unit        :string(255)
+#  add_time    :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #
