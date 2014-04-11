@@ -22,5 +22,7 @@ class Recipe < ActiveRecord::Base
   
   belongs_to :user
   
+  validates :name, :uniqueness => {:scope => :user_id}
+  
   accepts_nested_attributes_for :ingredients
 end

@@ -16,6 +16,7 @@
 
 class Ingredient < ActiveRecord::Base
   self.inheritance_column = nil
+  
   belongs_to :recipe
   
   VALID_TYPES = %w[hop barley yeast other] # use for "select" tags in forms
@@ -23,4 +24,5 @@ class Ingredient < ActiveRecord::Base
   
   VALID_UNITS = %w[oz lb tbsp tsp qts cups] # use for "select" tags in forms
   validates :unit, :inclusion => VALID_UNITS
+  
 end

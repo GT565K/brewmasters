@@ -17,7 +17,7 @@ class Api::V1::RecipesController < Api::V1::UsersController
   def index
     user_recipes = Recipe.includes(:ingredients).where(user_id: @user.id)
     if user_recipes
-      render :json=> user_recipes.as_json(:except => [:id, :user_id]), :status=>200
+      render :json=> user_recipes.as_json(include: :ingredients, :except => [:user_id]), :status=>200
     else
       render :json=> {:message=>"No recipes found"}, :status=>200
     end
@@ -30,7 +30,7 @@ class Api::V1::RecipesController < Api::V1::UsersController
     recipe = Recipe.create(params[:recipe].permit!)
     
     if recipe.id
-      render :json=> {:message=>"Recipe successfully created"}, status: 200
+      render :json=> recipe.as_json(include: :ingredients, :except => [:user_id]), status: 200
     else
       render :json=> recipe.errors, :status=>422
     end
@@ -40,11 +40,16 @@ class Api::V1::RecipesController < Api::V1::UsersController
   def update
     # params[:id] is recipe name
     
+    recipe = Recipe.find_by_name_and_user_id(params[:id], @user.id)
     puts "updating recipe with #{params[:recipe]}"
-    puts @user
+    #puts @user
     puts params
-    render nothing: true, status: 200
     
+    if recipe.update_attributes(params[:recipe].permit!)
+      render :json=> {:message=>"Recipe successfully updated"}, status: 200
+    else
+      render :json=> recipe.errors, :status=>422
+    end
   end
   
   
