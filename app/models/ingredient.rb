@@ -15,7 +15,7 @@
 #
 
 class Ingredient < ActiveRecord::Base
-  
+  self.inheritance_column = nil
   belongs_to :recipe
   
   VALID_TYPES = %w[hop barley yeast other] # use for "select" tags in forms
