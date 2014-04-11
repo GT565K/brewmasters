@@ -14,6 +14,9 @@ Brewmasters::Application.routes.draw do
   
   namespace :api do
     namespace :v1 do
+      resources :users, :only => [] do
+        resources :recipes, only: [:index, :show, :create, :update]
+      end
       devise_scope :user do
         post 'register' => 'registrations#create', :as => 'register'
         post 'login' => 'sessions#create', :as => 'login'
