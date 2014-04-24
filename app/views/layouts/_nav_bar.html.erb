@@ -12,6 +12,8 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
       	<%= nav_item 'HOME', root_path %>
+      	<%= nav_item 'TEAM', about_path %>
+      	<%= nav_item 'BREWERY', brewery_path %>
       	<% if current_user %>
       		<li><%= link_to 'LOG-OUT', destroy_user_session_path, :method => :delete %></li>
       	<% else %>

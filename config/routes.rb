@@ -8,9 +8,11 @@ Brewmasters::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root :to => 'application#index'
   
-  get '/about' => 'application#about', :as => :about
+  get '/team' => 'application#team', :as => :about
   
   get '/index' => 'application#index'
+  get '/services' => 'application#services'
+  get '/brewery' => 'application#brewery'
   
   namespace :api do
     namespace :v1 do
