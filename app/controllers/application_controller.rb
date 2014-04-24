@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
   
   def show_survey_alert
-    flash[:notice] = "Help us bring the Personal Brewery to market. Click <a href=\"https://www.surveymonkey.com/s/9M9DZT3\" target=\"_blank\">here</a> to take our survey.".html_safe
+    flash[:notice] = "<div style=\"font-weight:bold;font-size:22px;\">Help us bring the Personal Brewery to market. Click <a href=\"https://www.surveymonkey.com/s/9M9DZT3\" target=\"_blank\">here</a> to take our survey.<div>".html_safe
   end
   
 end
